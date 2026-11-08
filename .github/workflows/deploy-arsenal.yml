@@ -32,6 +32,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Restore Vite source entry
+        run: cp arsenal/index.source.html arsenal/index.html
+
       - name: Install dependencies
         working-directory: arsenal
         run: npm install
