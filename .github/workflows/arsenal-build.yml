@@ -1,0 +1,56 @@
+name: Build Arsenal for GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "arsenal/**"
+      - ".github/workflows/arsenal-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arsenal-pages-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: arsenal/package-lock.json
+
+      - name: Install dependencies
+        working-directory: arsenal
+        run: npm install
+
+      - name: Build production app
+        working-directory: arsenal
+        run: npm run build
+
+      - name: Publish compiled files into the Arsenal folder
+        run: |
+          rm -rf arsenal/assets
+          cp -R arsenal/dist/. arsenal/
+          rm -rf arsenal/dist
+
+      - name: Commit compiled GitHub Pages files
+        run: |
+          if [[ -n "$(git status --porcelain arsenal/index.html arsenal/assets)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add arsenal/index.html arsenal/assets
+            git commit -m "Build Arsenal production files [skip ci]"
+            git push
+          else
+            echo "No compiled changes to publish."
+          fi
