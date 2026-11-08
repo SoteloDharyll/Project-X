@@ -476,3 +476,40 @@ td small{color:#9aa1aa}
 .hm2-analytics{margin-top:14px}
 .hm2-analytics .compare-row{padding:12px 0}
 @media(max-width:760px){.development-stat{align-items:flex-start}.development-stat strong{font-size:19px}.development-stat span{max-width:58%;line-height:1.4}.weekly-grid{gap:8px}.weekly-grid>div{padding:10px}.weekly-grid b{font-size:16px}}
+
+
+/* Equity progression — controlled glass treatment */
+.equity-chart{
+  position:relative;
+  overflow:hidden;
+  padding:13px 14px 11px;
+  border:1px solid rgba(255,255,255,.88);
+  border-radius:15px;
+  background:
+    radial-gradient(ellipse at 14% 0%,rgba(255,255,255,.96),transparent 58%),
+    linear-gradient(145deg,rgba(248,251,255,.92),rgba(242,247,253,.72));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.96),0 8px 24px rgba(35,64,100,.045);
+}
+.equity-chart-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 2px 4px}
+.equity-chart-top>span{display:flex;align-items:center;gap:7px;color:#7e8997;font-size:8px;font-weight:750;letter-spacing:.13em}
+.equity-chart-top>span i{width:6px;height:6px;border-radius:50%;background:#1685ff;box-shadow:0 0 0 3px rgba(22,133,255,.11)}
+.equity-chart-top small{padding:5px 8px;border:1px solid rgba(124,150,180,.15);border-radius:999px;background:rgba(255,255,255,.64);color:#8b96a4;font-size:8px;font-weight:650}
+.equity-chart svg{display:block;width:100%;height:220px;overflow:visible}
+.equity-gridline{stroke:rgba(102,125,153,.12);stroke-width:1;stroke-dasharray:2 6}
+.equity-zero{stroke:rgba(92,111,135,.27);stroke-width:1.1;stroke-dasharray:4 5}
+.equity-area{fill:url(#equityAreaFill)}
+.equity-line{fill:none;stroke:#1685ff;stroke-width:2.7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 3px 4px rgba(22,133,255,.16));vector-effect:non-scaling-stroke}
+.equity-start{fill:#fff;stroke:#1685ff;stroke-width:2}
+.equity-end{fill:#1685ff;stroke:#fff;stroke-width:2.5}
+.equity-end-halo{fill:none;stroke:rgba(22,133,255,.17);stroke-width:2}
+.equity-axis{display:flex;justify-content:space-between;margin:0 2px;color:#a1aab5;font-size:7px;font-weight:750;letter-spacing:.12em}
+.equity-chart .chart-foot{padding:11px 2px 0;margin-top:8px;border-top:1px solid rgba(115,139,167,.13);font-size:9px}
+.equity-chart .chart-foot b{font-size:12px;font-weight:750}
+@media(max-width:760px){
+  .equity-chart{padding:11px 10px 9px;border-radius:13px}
+  .equity-chart svg{height:190px}
+  .equity-chart-top>span{font-size:7px}
+  .equity-chart-top small{font-size:7px}
+  .equity-chart .chart-foot{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){.equity-chart *{animation:none!important;transition:none!important}}
