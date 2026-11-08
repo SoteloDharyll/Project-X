@@ -45,6 +45,7 @@ jobs:
           mkdir -p _site/arsenal
           rsync -a --exclude='.git' --exclude='.github' --exclude='arsenal' --exclude='node_modules' ./ _site/
           cp -R arsenal/dist/. _site/arsenal/
+          touch _site/.nojekyll
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
