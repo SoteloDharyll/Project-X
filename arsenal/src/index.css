@@ -378,3 +378,33 @@ td small{color:#9aa1aa}
   .auth-card{padding:25px 20px;border-radius:18px}
   .auth-card h1{font-size:25px}
 }
+
+
+/* Calendar mobile refinement */
+@media(max-width:760px){
+  .calendar-panel{padding:12px}
+  .calendar-panel .panel-title{align-items:flex-start;gap:8px;margin-bottom:12px}
+  .calendar-panel .panel-title>div:first-child{min-width:0}
+  .calendar-panel .panel-title h2{font-size:14px;white-space:nowrap}
+  .month-actions{flex-shrink:0;gap:4px}
+  .month-actions button{min-width:32px;height:30px;padding:5px 7px;border-radius:8px;font-size:9px}
+  .month-actions button:nth-child(2){min-width:42px}
+  .weekdays,.calendar-grid{gap:3px}
+  .weekdays{margin-bottom:4px}
+  .weekdays span{font-size:7px;padding:4px 1px}
+  .day{min-width:0;min-height:68px;padding:6px 4px;border-radius:9px;gap:3px;overflow:hidden}
+  .day b{font-size:9px}
+  .day small{font-size:7px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .day strong{font-size:8px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
+@media(max-width:380px){
+  .calendar-panel{padding:10px}
+  .calendar-panel .panel-title h2{font-size:13px}
+  .month-actions button{min-width:29px;height:28px;padding:4px 6px}
+  .month-actions button:nth-child(2){min-width:38px}
+  .weekdays,.calendar-grid{gap:2px}
+  .day{min-height:62px;padding:5px 3px}
+  .day b{font-size:8px}
+  .day small{font-size:6.5px}
+  .day strong{font-size:7px}
+}
