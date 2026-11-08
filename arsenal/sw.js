@@ -1,4 +1,4 @@
-const CACHE_NAME = 'arsenal-pwa-v2';
+const CACHE_NAME = 'arsenal-pwa-v3';
 const APP_ROOT = '/Project-X/arsenal/';
 const CORE_ASSETS = [APP_ROOT, APP_ROOT + 'index.html', APP_ROOT + 'manifest.webmanifest', APP_ROOT + 'icon.svg', APP_ROOT + 'icon-192.png', APP_ROOT + 'icon-512.png'];
 
