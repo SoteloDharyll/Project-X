@@ -282,3 +282,99 @@ td small{color:#9aa1aa}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+
+/* Auth screen — premium, centered and mobile-safe */
+.auth-screen{
+  min-height:100vh;
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  padding:24px 16px;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(0,122,255,.08),transparent 38%),
+    #f6f8fb;
+}
+.auth-card{
+  width:min(100%,400px);
+  padding:32px;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  background:rgba(255,255,255,.94)!important;
+  border:1px solid #e5e9ef!important;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(25,38,55,.09),0 2px 8px rgba(25,38,55,.03);
+  backdrop-filter:blur(20px);
+}
+.auth-card h1{
+  margin:0;
+  font:800 28px/1.1 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  letter-spacing:-1px;
+  color:#17191c;
+}
+.auth-card>p{
+  margin:-6px 0 3px;
+  color:#858c96;
+  font-size:11px;
+  line-height:1.55;
+}
+.auth-card .field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.auth-card .field>span{
+  font-size:9px;
+  font-weight:600;
+  color:#6f7782;
+}
+.auth-card .field input{
+  width:100%;
+  min-height:42px;
+  padding:10px 12px;
+  border:1px solid #e1e6ed!important;
+  border-radius:10px;
+  background:#fff!important;
+  color:#20242a;
+  font-size:12px;
+  outline:none;
+}
+.auth-card .field input:focus{
+  border-color:#8fc2ff!important;
+  box-shadow:0 0 0 3px rgba(0,122,255,.10)!important;
+}
+.auth-card .primary-btn{
+  width:100%;
+  min-height:42px;
+  margin-top:2px;
+  font-size:11px;
+}
+.auth-card .text-btn{
+  align-self:center;
+  border:0;
+  background:transparent;
+  color:#007aff!important;
+  font-size:10px;
+  padding:4px 8px;
+}
+.auth-card .text-btn:hover{text-decoration:underline}
+.auth-card .eyebrow{
+  color:#8b929b;
+  margin-bottom:1px;
+}
+.loading-screen{
+  min-height:100vh;
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  background:#f6f8fb;
+  color:#17191c;
+  font:700 12px Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  letter-spacing:.16em;
+}
+@media(max-width:480px){
+  .auth-screen{padding:18px 14px}
+  .auth-card{padding:25px 20px;border-radius:18px}
+  .auth-card h1{font-size:25px}
+}
