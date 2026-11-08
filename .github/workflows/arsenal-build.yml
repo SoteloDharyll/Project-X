@@ -37,6 +37,12 @@ jobs:
         working-directory: arsenal
         run: npm install
 
+      - name: Generate installable PNG icons
+        working-directory: arsenal
+        run: |
+          npm install --no-save sharp
+          node --input-type=module -e "import sharp from 'sharp'; await sharp('icon.svg').resize(192,192).png().toFile('icon-192.png'); await sharp('icon.svg').resize(512,512).png().toFile('icon-512.png');"
+
       - name: Build production app
         working-directory: arsenal
         run: npm run build
@@ -52,12 +58,14 @@ jobs:
           test -f arsenal/manifest.webmanifest
           test -f arsenal/sw.js
           test -f arsenal/icon.svg
+          test -f arsenal/icon-192.png
+          test -f arsenal/icon-512.png
 
       - name: Commit compiled files safely
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add arsenal/index.html arsenal/assets arsenal/manifest.webmanifest arsenal/sw.js arsenal/icon.svg
+          git add arsenal/index.html arsenal/assets arsenal/manifest.webmanifest arsenal/sw.js arsenal/icon.svg arsenal/icon-192.png arsenal/icon-512.png
           if git diff --cached --quiet; then
             echo "No compiled changes."
             exit 0
