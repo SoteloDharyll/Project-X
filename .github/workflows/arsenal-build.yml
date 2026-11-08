@@ -1,0 +1,61 @@
+name: Build and publish Arsenal assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "arsenal/**"
+      - ".github/workflows/arsenal-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arsenal-build-publish
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: arsenal
+        run: npm install
+
+      - name: Build production app
+        working-directory: arsenal
+        run: npm run build
+
+      - name: Replace source entry with compiled production output
+        run: |
+          rm -rf arsenal/assets
+          cp -R arsenal/dist/. arsenal/
+          rm -rf arsenal/dist
+          test -f arsenal/index.html
+          grep -q 'assets/index-' arsenal/index.html
+          test -d arsenal/assets
+
+      - name: Commit compiled files safely
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add arsenal/index.html arsenal/assets
+          if git diff --cached --quiet; then
+            echo "No compiled changes."
+            exit 0
+          fi
+          git commit -m "Publish Arsenal compiled production app [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
