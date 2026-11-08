@@ -408,3 +408,14 @@ td small{color:#9aa1aa}
   .day small{font-size:6.5px}
   .day strong{font-size:7px}
 }
+
+/* Compact controls */
+.library-item .secondary-btn{min-height:29px;height:29px;padding:5px 9px;font-size:9px;border-radius:8px}
+.library-item .icon-action{width:29px;height:29px;border-radius:8px}
+.month-actions button{min-height:30px;height:30px;padding:5px 9px;font-size:9px}
+@media(max-width:760px){
+  .nav-actions .primary-btn{min-height:32px;padding:7px 9px;font-size:9px}
+  .month-actions button{height:28px;min-height:28px;padding:4px 7px}
+  .panel-title .primary-btn{min-height:31px;height:31px;padding:6px 9px;font-size:9px}
+  .panel-title .secondary-btn{min-height:30px;height:30px;padding:5px 8px;font-size:9px}
+}
