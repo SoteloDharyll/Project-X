@@ -457,3 +457,22 @@ td small{color:#9aa1aa}
 .filter-controls .filter-select select{min-width:0;width:100%;font-size:10px}
 @media(max-width:760px){.filter-panel{padding:11px 12px;margin-bottom:14px}.filter-panel-head{align-items:center}.filter-panel-head>div:first-child{align-items:flex-start;flex-direction:column;gap:4px}.filter-panel-actions{gap:7px}.filter-controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.filter-controls .search-box{grid-column:1/-1}.filter-controls .filter-select{width:100%}}
 @media(max-width:380px){.filter-panel-title{font-size:11px}.filter-toggle{height:30px;padding:0 8px;font-size:9px}.filter-controls{gap:6px}.filter-controls .filter-select{padding:0 7px}.filter-reset{font-size:9px}}
+
+
+/* Trader development dashboard */
+.development-stat{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(20,30,45,.07)}
+.development-stat:last-of-type{border-bottom:0}
+.development-stat strong{font-size:21px;letter-spacing:-.03em;color:#202124}
+.development-stat span{font-size:10px;color:#858b94;text-align:right}
+.mistake-list{margin-top:14px;padding-top:12px;border-top:1px solid rgba(20,30,45,.07)}
+.mistake-list>b{font-size:10px;color:#747b84;letter-spacing:.06em;text-transform:uppercase}
+.mistake-list>div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;font-size:11px;color:#555d67}
+.mistake-list strong{color:#202124}
+.weekly-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.weekly-grid>div{padding:12px;border:1px solid rgba(20,30,45,.07);border-radius:12px;background:rgba(255,255,255,.55);display:flex;flex-direction:column;gap:6px}
+.weekly-grid small{font-size:9px;color:#858b94;letter-spacing:.04em}
+.weekly-grid b{font-size:18px;color:#202124}
+.review-prompt,.muted-copy{font-size:10px;line-height:1.55;color:#858b94;margin:12px 0 0}
+.hm2-analytics{margin-top:14px}
+.hm2-analytics .compare-row{padding:12px 0}
+@media(max-width:760px){.development-stat{align-items:flex-start}.development-stat strong{font-size:19px}.development-stat span{max-width:58%;line-height:1.4}.weekly-grid{gap:8px}.weekly-grid>div{padding:10px}.weekly-grid b{font-size:16px}}
