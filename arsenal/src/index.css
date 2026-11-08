@@ -419,3 +419,19 @@ td small{color:#9aa1aa}
   .panel-title .primary-btn{min-height:31px;height:31px;padding:6px 9px;font-size:9px}
   .panel-title .secondary-btn{min-height:30px;height:30px;padding:5px 8px;font-size:9px}
 }
+
+/* Unified page header + panel header sizing */
+.page-heading{min-height:92px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.page-heading h1{margin:4px 0 6px;font-size:28px;line-height:1.08;letter-spacing:-.025em}
+.page-heading p{margin:0;max-width:620px}
+.panel-title{min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+.panel-title h2{margin:3px 0 0;font-size:16px;line-height:1.2;letter-spacing:-.015em}
+.panel-title .eyebrow,.page-heading .eyebrow{font-size:9px;line-height:1.2;letter-spacing:.12em}
+@media(max-width:760px){
+ .page-heading{min-height:auto;gap:10px;margin-bottom:14px}
+ .page-heading h1{font-size:22px;margin-top:3px}
+ .page-heading p{font-size:11px;line-height:1.4}
+ .panel-title{min-height:40px;margin-bottom:10px;gap:10px}
+ .panel-title h2{font-size:14px}
+ .panel-title .eyebrow,.page-heading .eyebrow{font-size:8px}
+}
