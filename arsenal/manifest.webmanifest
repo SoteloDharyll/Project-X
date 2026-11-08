@@ -1,0 +1,20 @@
+{
+  "id": "/Project-X/arsenal/",
+  "name": "Arsenal — Trade Journal",
+  "short_name": "Arsenal",
+  "description": "A clean, focused trade journal.",
+  "start_url": "/Project-X/arsenal/",
+  "scope": "/Project-X/arsenal/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#17191C",
+  "theme_color": "#17191C",
+  "icons": [
+    {
+      "src": "/Project-X/arsenal/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
