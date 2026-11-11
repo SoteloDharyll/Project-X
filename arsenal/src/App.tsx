@@ -11,7 +11,7 @@ const blank=()=>({date:today(),time:'',symbol:'',timeframe:'',session:'Unassigne
 const num=(v:any)=>Number.isFinite(Number(v))?Number(v):0;
 const cash=(v:number)=>`${v>0?'+':''}${v.toFixed(2)}R`;
 const pip=(v:number)=>`${v>0?'+':''}${v.toFixed(1)} pips`;
-const pipSize=(symbol:string)=>{const s=String(symbol||'').toUpperCase();if(s.includes('JPY'))return 0.01;if(s.includes('XAU'))return 0.01;if(s.includes('XAG'))return 0.01;if(s.includes('BTC'))return 1;if(s.includes('ETH'))return 0.1;return 0.0001};
+const pipSize=(symbol:string)=>{const s=String(symbol||'').toUpperCase();if(s.includes('JPY'))return 0.01;if(s.includes('XAU'))return 0.1;if(s.includes('XAG'))return 0.01;if(s.includes('BTC'))return 1;if(s.includes('ETH'))return 0.1;return 0.0001};
 const distancePips=(entry:any,price:any,symbol:string)=>{const e=Number(entry),p=Number(price);if(!Number.isFinite(e)||!Number.isFinite(p)||!e||!p)return 0;return Math.abs(p-e)/pipSize(symbol)};
 const directionalPips=(entry:any,price:any,side:string,symbol:string)=>{const e=Number(entry),p=Number(price);if(!Number.isFinite(e)||!Number.isFinite(p)||!e||!p)return 0;return ((String(side).toUpperCase()==='SELL'?e-p:p-e)/pipSize(symbol))};
 const normalize=(t:any):Trade=>({...blank(),...t,id:String(t.id||crypto.randomUUID()),symbol:String(t.symbol||t.market||''),session:String(t.session||t.entryWindow||'Unassigned'),realizedR:num(t.realizedR),pips:num(t.pips),targets:Array.isArray(t.targets)?t.targets:[],accountId:String(t.accountId||''),strategyId:String(t.strategyId||''),outcome:String(t.outcome||'Open')});
